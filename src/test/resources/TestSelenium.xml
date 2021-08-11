@@ -3,6 +3,7 @@
     <test name="SeleniumTest">
         <classes>
             <class name="TestSelenium"></class>
+            <class name="TestSomethingElse"></class>
         </classes>
     </test>
     <listeners>

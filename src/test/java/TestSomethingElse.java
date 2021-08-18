@@ -15,7 +15,7 @@ public class TestSomethingElse extends BaseTest {
 
     @Test
     public void test(){
-        Testlogger.info(logger,"test1");
+        Testlogger.info(logger,"test11");
     }
     @Test
     public void test2(){

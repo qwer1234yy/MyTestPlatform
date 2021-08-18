@@ -4,6 +4,7 @@ package automation.testmanagement;
 
 import automation.SpringBootApp;
 import com.relevantcodes.extentreports.ExtentTest;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,9 @@ import java.lang.reflect.Method;
 public class BaseTest extends AbstractTestNGSpringContextTests {
     private static final Logger logger = LoggerFactory.getLogger(BaseTest.class);
     private ExtentTest test;
+    
+    public EventFiringWebDriver driver;
 
-    @Autowired
     public DriverProvider driverProvider;
     @Value("${environment.name}")
     private String environmentName;
@@ -43,7 +45,10 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
         FileExtractor.deleteTestNGFiles();
     }
 
-    public void beforeTestClass(){logger.info("[BeforeClass] ......");}
+    public void beforeTestClass(){
+        driver = driverProvider.initDriverInstance();
+        logger.info("[BeforeClass] ......");
+    }
 
     public void cleanTestClass(){
         logger.info("[AfterClass] ......");

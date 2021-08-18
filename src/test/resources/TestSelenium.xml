@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="SeleniumTest">
+    <parameter name="parameter1" value="parameter1"></parameter>
+    <parameter name="parameter2" value="parameter2"></parameter>
+    <parameter name="parameter3" value="parameter3"></parameter>
     <test name="SeleniumTest">
         <classes>
             <class name="TestSelenium"></class>

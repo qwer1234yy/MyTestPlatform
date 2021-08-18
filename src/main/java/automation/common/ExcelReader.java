@@ -40,7 +40,6 @@ public class ExcelReader {
         int totalCol = sheet.getRow(0).getLastCellNum();
 
         XSSFRow rowHeaders = sheet.getRow(0);
-
         for(int i=1;i < totalRow;i++){
             XSSFRow row = sheet.getRow(i);
             cellValueMap = new HashMap<>();

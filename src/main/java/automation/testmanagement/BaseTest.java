@@ -25,7 +25,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
     private ExtentTest test;
     
     public EventFiringWebDriver driver;
-
+    @Autowired
     public DriverProvider driverProvider;
     @Value("${environment.name}")
     private String environmentName;

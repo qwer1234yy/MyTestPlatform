@@ -52,9 +52,9 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
 
     public void cleanTestClass(){
         logger.info("[AfterClass] ......");
-//        BaseDatabase.close();
-//        BaseSftp.exit();
-//        DriverProvider.clearDriverInstance();
+        //BaseDatabase.close();
+        //BaseSftp.exit();
+        //DriverProvider.clearDriverInstance();
     }
 
     public void initTestMethod(Method method){

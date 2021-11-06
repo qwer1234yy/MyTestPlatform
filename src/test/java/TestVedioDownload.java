@@ -1,3 +1,5 @@
+import org.testng.annotations.Test;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -9,40 +11,21 @@ import java.util.Map;
 public class TestVedioDownload {
 
     public static void main(String[] args) throws IOException {
+//      英语二强化班
+        String courseId_YingYuQiangHuaBan = "2675129";
+        String folder_YingYuQiangHuaBan = "英语二强化班\\";
+        Map<String,String> mp4Ulr_YingYuQiangHuaBan = new HashMap();
+        mp4Ulr_YingYuQiangHuaBan.put("强化阅读第10讲","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/ecc2ba773701925920151152319/kTb47eISfaoA.mp4");
 
-//        中午写作强化
-//        Map<String,String> mp4Ulr_ZhongWenXieZuo = new HashMap();
-//        String courseId = "2558324";
-//        String folder = "中文写作强化班\\";
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第1课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/92ee3bed3701925919049168923/hghA0pfyUKgA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第2课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/953f8e923701925919049261979/riiOpUuWCf4A.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第3课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/92ee3c0c3701925919049168931/IBhorfMtJCsA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第4课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/953f8eac3701925919049261982/kf1U6TQow9EA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第5课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/c2f5529d3701925921038303826/x5zmX2AQbAIA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第6课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/c121fdc23701925921038279027/pJXD3XTqV7QA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第7课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/d374a4083701925920979271433/EPYGnI8VNnoA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第8课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/c2f552e13701925921038303848/bJozF9wsvTQA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第9课","http://1252433846.vod2.myqcloud.com/e0f98685vodgzp1252433846/c0c66b3c3701925921038227082/Nr598XnFU74A.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第10课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/e3f03fd83701925920979997524/B0fhaOAcbm8A.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第11课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/697383c53701925923237419049/wyityL28QoUA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第12课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/697383de3701925923237419051/ZAlHN44r2zcA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第13课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/697383df3701925923237419052/6aKTLxSD19gA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第14课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/697383e03701925923237419053/emAJf9AMK7wA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第15课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/697383e43701925923237419057/zZqXMaxKiAEA.mp4");
-//        mp4Ulr_ZhongWenXieZuo.put("中午写作强化第16课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/28af00ea3701925923236990690/wJ72o08e528A.mp4");
-//        httpDownloadByCourseID(folder,mp4Ulr_ZhongWenXieZuo,courseId);
+        Map<String,Map<String, String>>  courses = readFileCourseUrls();
 
-        String courseId = "2558324";
-        String folder = "中文写作基础班\\";
-        Map<String,String> mp4Ulr_ZhongWenXieZuoJiChu = new HashMap();
-        mp4Ulr_ZhongWenXieZuoJiChu.put("中午写作基础第1课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/446e3f085285890814372077421/CFtnTxNzTCgA.mp4");
-        mp4Ulr_ZhongWenXieZuoJiChu.put("中午写作基础第2课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/446e3f095285890814372077422/SLwU6moAGy0A.mp4");
-        mp4Ulr_ZhongWenXieZuoJiChu.put("中午写作基础第3课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/446e3f0a5285890814372077423/CiEE3hDtodEA.mp4");
-        mp4Ulr_ZhongWenXieZuoJiChu.put("中午写作基础第4课","http://1252433846.vod2.myqcloud.com/4fec7368vodcq1252433846/38fe356a5285890814375621830/NkZvECsaBDcA.mp4");
-        httpDownloadByCourseID(folder,mp4Ulr_ZhongWenXieZuoJiChu,courseId);
+        for (String course:courses.keySet()
+             ) {
+            Map<String, String> courseUrls= courses.get(course);
 
+            httpDownloadByCourseID(course,courseUrls,courseId_YingYuQiangHuaBan);
 
-
+        }
     }
 
     public static void  downLoadFromUrl(String urlStr,String fileName,String savePath) throws IOException{
@@ -111,16 +94,17 @@ public class TestVedioDownload {
         return bos.toByteArray();
     }
     public static void  httpDownloadByCourseID(String courseFolder, Map<String, String> sourceVideoUrl, String courseId){
-        String baseFolder = "D:\\study\\" + courseFolder;
+        String baseFolder = "D:\\study\\2022届管理类联考精品班课程\\" + courseFolder+"\\";
         sourceVideoUrl.forEach((key, value) -> {
             try {
-                httpDownload(value,baseFolder + key + ".mp4",courseId);
+                System.out.println(key);
+                httpDownload(key,value,baseFolder + key + ".mp4",courseId);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
     }
-    public static boolean httpDownload(String httpUrl, String saveFile, String courseId) throws IOException {
+    public static boolean httpDownload(String key,String httpUrl, String saveFile, String courseId) throws IOException {
         // 1.下载网络文件
         int byteRead;
         URL url;
@@ -144,7 +128,7 @@ public class TestVedioDownload {
 //            conn.setRequestProperty("Host","1252433846.vod2.myqcloud.com");
             conn.setRequestProperty("Range","bytes=0-");
 //            conn.setRequestProperty("If-Range","Tue, 08 Jun 2021 16:38:29 GMT");
-            conn.setRequestProperty("Referer","http://pc.guoweiedu.com/course/coursePlays.html?courseId=" + courseId);
+//            conn.setRequestProperty("Referer","http://pc.guoweiedu.com/course/coursePlays.html?courseId=" + courseId);
 //            conn.setRequestProperty("If-Modified-Since","Mon, 23 Aug 2021 20:27:24 GMT");
 //            conn.setRequestProperty("Upgrade-Insecure-Requests","1");
             conn.setRequestProperty("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.104 Safari/537.36");
@@ -158,7 +142,7 @@ public class TestVedioDownload {
 
             byte[] buffer = new byte[1024 * 1000];
             while ((byteRead = inStream.read(buffer)) != -1) {
-                System.out.println("writing file");
+                System.out.println("writing file: " + key);
                 fs.write(buffer, 0, byteRead);
             }
             inStream.close();
@@ -172,5 +156,37 @@ public class TestVedioDownload {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static Map<String,Map<String, String>> readFileCourseUrls() throws IOException {
+        Map<String,Map<String, String>> classUrl = new HashMap<>();
+
+//        String[] courseFile = {"2021年逻辑基础全程通关班","2022年中文写作零基础全程通关班",
+//                "2022年数学零基础全程通关班","2022年英语二零基础全程通关班","2022年逻辑零基础全程通关班"};
+        String[] courseFile = {"2022年逻辑零基础全程通关班"};
+        String base = "src/test/resources/hongli/";
+        for (String course:courseFile) {
+            try {
+                File file=new File(base + course+".txt");
+                Map<String, String> courseUrl = new HashMap<>();
+                if(file.isFile() && file.exists()){ //判断文件是否存在
+                    InputStreamReader read = new InputStreamReader(
+                            new FileInputStream(file));//考虑到编码格式
+                    BufferedReader bufferedReader = new BufferedReader(read);
+                    String lineTxt = null;
+                    while((lineTxt = bufferedReader.readLine()) != null){
+                        courseUrl.put(lineTxt.split(",")[0],lineTxt.split(",")[1]);
+                    }
+                    classUrl.put(course,courseUrl);
+                    read.close();
+                }else{
+                    System.out.println("找不到指定的文件");
+                }
+            } catch (Exception e) {
+                System.out.println("读取文件内容出错");
+                e.printStackTrace();
+            }
+        }
+        return classUrl;
     }
 }

@@ -7,7 +7,24 @@
     <groupId>org.example</groupId>
     <artifactId>MyTestPlatform</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>my test solution</name>
+    <url>my url</url>
 <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version> 5.7.0</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.bsf/bsf-api -->
+    <dependency>
+        <groupId>org.apache.bsf</groupId>
+        <artifactId>bsf-api</artifactId>
+        <version>3.1</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
     <dependency>
         <groupId>org.apache.poi</groupId>
@@ -53,33 +70,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-test</artifactId>
         <version>2.5.2</version>
-        <scope>test</scope>
+        <scope>compile</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
-    <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-test</artifactId>
-        <version>5.3.9</version>
-        <scope>test</scope>
-    </dependency>
-
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
         <version>7.4.0</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>7.4.0</version>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-test</artifactId>
-        <version>2.5.2</version>
         <scope>compile</scope>
     </dependency>
     <dependency>
@@ -94,8 +91,12 @@
         <artifactId>extentreports</artifactId>
         <version>2.41.2</version>
     </dependency>
-
-
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>7.2.3</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/com.alibaba.spring/spring-context-support -->
     <dependency>
         <groupId>com.alibaba.spring</groupId>
@@ -117,19 +118,47 @@
 
 
 </dependencies>
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.sorce>10</maven.compiler.sorce>
+    <maven.compiler.target>10</maven.compiler.target>
+</properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <source>10</source>
-                    <target>10</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<build>
+    <defaultGoal>compile</defaultGoal>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.5.1</version>
+            <configuration>
+                <source>10</source>
+                <target>10</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <argLine>-Xmx1024m</argLine>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version> 1.1</version>
+            <configuration>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version> 3.0.0</version>
+            <configuration>
+                <mainClass>automation/SpringBootApp</mainClass>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 
 </project>

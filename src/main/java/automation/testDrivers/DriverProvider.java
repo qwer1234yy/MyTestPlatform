@@ -16,7 +16,7 @@ import automation.testmanagement.FileExtractor;
 import java.net.URL;
 
 @Component
-@Scope("singleton")
+//@Scope("singleton")
 public class DriverProvider {
     private static WebDriver webDriver;
     private static EventFiringWebDriver driver;

@@ -13,7 +13,7 @@ public class FileUtils {
     private static final Logger logger = LoggerFactory.getLogger(FileUtils.class);
     XSSFWorkbook workbookl;
 
-    public static void copyFile(File srcFile, File destFile, boolean b) {
-        copyFile(srcFile,destFile,true);
+    public static void copyFile(File srcFile, File destFile, boolean b) throws IOException {
+        org.apache.commons.io.FileUtils.copyFile(srcFile,destFile,true);
     }
 }

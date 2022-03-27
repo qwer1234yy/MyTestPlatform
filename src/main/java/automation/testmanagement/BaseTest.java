@@ -95,7 +95,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result, Method method) throws Exception {
-        super.springTestContextAfterTestMethod(method);
+//        super.springTestContextAfterTestMethod(method);
         this.cleantestMethod(result);
     }
 

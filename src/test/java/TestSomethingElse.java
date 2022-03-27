@@ -9,13 +9,33 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class TestSomethingElse extends BaseTest {
+public class TestSomethingElse {
     private static final Logger logger = LoggerFactory.getLogger(TestSelenium.class);
 
 
     @Test
     public void test(){
-        Testlogger.info(logger,"test1");
+        System.out.println(PrimeSum.sm(20));
+    }
+    public static boolean isPrimeNum(int num) {
+
+        if (num < 1) {
+            return false;
+        }
+
+        if (num == 2) {
+            return true;
+        }
+
+        for (int i = 2; i < num; i++) {
+
+            if (num % i == 0) {
+                return false;
+            }
+
+        }
+
+        return true;
     }
     @Test
     public void test2(){

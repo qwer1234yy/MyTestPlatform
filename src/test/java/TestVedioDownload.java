@@ -162,8 +162,8 @@ public class TestVedioDownload {
         Map<String,Map<String, String>> classUrl = new HashMap<>();
 
 //        String[] courseFile = {"2021年逻辑基础全程通关班","2022年中文写作零基础全程通关班",
-//                "2022年数学零基础全程通关班","2022年英语二零基础全程通关班","2022年逻辑零基础全程通关班"};
-        String[] courseFile = {"2022年逻辑零基础全程通关班"};
+//                "2022年数学零基础全程通关班","2022年英语二零基础全程通关班"};
+        String[] courseFile = {"2022年英语二零基础全程通关班"};
         String base = "src/test/resources/hongli/";
         for (String course:courseFile) {
             try {

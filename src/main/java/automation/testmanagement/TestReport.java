@@ -13,6 +13,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -81,7 +82,7 @@ public class TestReport {
             }
         }
     }
-    public static String captureScreen(EventFiringWebDriver driver){
+    public static String captureScreen(EventFiringWebDriver driver) throws IOException {
         File srcFile = (File)((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         File destFile = new File(getTestScreenShotName());
         FileUtils.copyFile(srcFile,destFile, true);
@@ -93,7 +94,7 @@ public class TestReport {
         String failScreenshotPath = testReportPath + testScreenShotFolder;
         Calendar calendar = Calendar.getInstance();
         String strCurrentTime = (new SimpleDateFormat("yyyyMMdd_HHmmss")).format(calendar.getTime());
-        return failScreenshotPath + File.separator + ".png";
+        return failScreenshotPath + File.separator + strCurrentTime +".png";
     }
 
     public static void cleanTestResult() {

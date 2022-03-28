@@ -8,12 +8,12 @@ import test_prices.entities.Item;
 public class TestGetItemsFromJDUi extends UiBaseTest {
     Item item;
     String url = "https://www.jd.com";
-    long wait = 1000 * 2;
 
     @Test
     public void testGetItem() throws InterruptedException {
         driver.get(url);
-        driver.findElement(By.id("q")).sendKeys("连衣裙");
-        driver.findElement(By.className("btn-search")).click();
+        driver.findElement(By.id("key")).sendKeys("连衣裙");
+//        driver.findElement(By.xpath(".//button[contains(text(),'搜索')]")).click();
+        driver.findElement(By.xpath("//*[@id=\"search\"]/div/div[2]/button/i")).click();
     }
 }

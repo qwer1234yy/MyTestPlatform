@@ -16,6 +16,5 @@ public class GetItemsFromTaobao extends BaseTest {
         driver.get(url);
         driver.findElement(By.id("q")).sendKeys("连衣裙");
         driver.findElement(By.className("btn-search")).click();
-        driver.close();
     }
 }

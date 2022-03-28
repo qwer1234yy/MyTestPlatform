@@ -1,4 +1,4 @@
-package jenkins;
+package test_jenkins;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

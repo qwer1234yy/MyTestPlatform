@@ -1,14 +1,10 @@
-import automation.testDrivers.DriverProvider;
+package test_selenium;
+
 import automation.testmanagement.Testlogger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import automation.testmanagement.BaseTest;
@@ -23,11 +19,6 @@ public class TestSelenium extends BaseTest {
     public void setup(ITestContext context){
         parameter1 = context.getCurrentXmlTest().getParameter("parameter1");
         parameter2 = context.getCurrentXmlTest().getParameter("parameter1");
-    }
-
-    @AfterClass
-    public void afterClas(){
-        driver.quit();
     }
 
     @Test

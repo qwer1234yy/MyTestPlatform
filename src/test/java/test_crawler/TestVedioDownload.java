@@ -1,3 +1,5 @@
+package test_crawler;
+
 import org.testng.annotations.Test;
 
 import java.io.*;

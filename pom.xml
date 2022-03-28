@@ -3,12 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.example</groupId>
-    <artifactId>MyTestPlatform</artifactId>
+    <groupId>org.mytesting.com</groupId>
+    <artifactId>MyTestSolution</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>my test solution</name>
+    <name>My Test Solution</name>
     <url>my url</url>
 <dependencies>
     <!-- https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-api -->
@@ -146,8 +145,12 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
+            <version> 2.12.4</version>
             <configuration>
                 <argLine>-Xmx1024m</argLine>
+                <skipTests>false</skipTests>
+                <parallel>10</parallel>
+                <forkMode></forkMode>
             </configuration>
         </plugin>
         <plugin>
@@ -167,5 +170,9 @@
         </plugin>
     </plugins>
 </build>
-
+<reports>
+    <project>
+        <profiles>asf</profiles>
+    </project>
+</reports>
 </project>

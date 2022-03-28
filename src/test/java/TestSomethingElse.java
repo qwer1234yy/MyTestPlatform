@@ -3,6 +3,7 @@ import automation.testmanagement.BaseTest;
 import automation.testmanagement.Testlogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -15,6 +16,16 @@ public class TestSomethingElse {
 
     @Test
     public void test(){
+        String[] asf= {"",""};
+        System.out.println(PrimeSum.sm(20));
+    }
+    @Test
+    public void test4(){
+        System.out.println(PrimeSum.sm(20));
+    }
+    @Test
+    public void test3(){
+        Assert.fail();
         System.out.println(PrimeSum.sm(20));
     }
     public static boolean isPrimeNum(int num) {

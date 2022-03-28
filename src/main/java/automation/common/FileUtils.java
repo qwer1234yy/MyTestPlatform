@@ -31,7 +31,7 @@ public class FileUtils {
                         try {
                             deleteFiles(file.getCanonicalPath());
                         } catch (IOException e) {
-                            logger.error(e.getmessage());
+                            logger.error(e.getMessage());
                         }
                     }
                 }

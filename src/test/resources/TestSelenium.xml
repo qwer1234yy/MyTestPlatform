@@ -5,7 +5,7 @@
     <parameter name="parameter3" value="parameter3"></parameter>
     <test name="SeleniumTest">
         <classes>
-            <class name="test_selenium.TestSelenium"></class>
+            <class name="test_selenium.TestSeleniumUi"></class>
         </classes>
     </test>
     <listeners>

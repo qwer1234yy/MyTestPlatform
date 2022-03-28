@@ -1,4 +1,4 @@
-package prices.entities;
+package test_prices.entities;
 
 public class Item {
     Float price;

@@ -1,16 +1,16 @@
 package test_selenium;
 
 import automation.testmanagement.Testlogger;
+import automation.testmanagement.UiBaseTest;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import automation.testmanagement.BaseTest;
 
-public class TestSelenium extends BaseTest {
-    private static final Logger logger = LoggerFactory.getLogger(TestSelenium.class);
+public class TestSeleniumUi extends UiBaseTest {
+    private static final Logger logger = LoggerFactory.getLogger(TestSeleniumUi.class);
 
     private String parameter1;
     private String parameter2;

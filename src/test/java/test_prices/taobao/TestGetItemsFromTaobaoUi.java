@@ -1,12 +1,11 @@
-package prices.taobao;
+package test_prices.taobao;
 
-import automation.testmanagement.BaseTest;
+import automation.testmanagement.UiBaseTest;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import prices.entities.Item;
+import test_prices.entities.Item;
 
-public class GetItemsFromTaobao extends BaseTest {
+public class TestGetItemsFromTaobaoUi extends UiBaseTest {
     Item item;
     String url = "https://www.taobao.com";
     long wait = 1000 * 2;

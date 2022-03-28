@@ -16,4 +16,28 @@ public class FileUtils {
     public static void copyFile(File srcFile, File destFile, boolean b) throws IOException {
         org.apache.commons.io.FileUtils.copyFile(srcFile,destFile,true);
     }
+    
+    public void deleteFiles(String path) throws IOException {
+
+        File f = new File(path);
+        if(f.exists()){
+            if(f.isDirectory()){
+                File[]  fs = f.listFiles();
+                for (File file: fs) {
+                    if(file.isFile())
+                    {
+                        file.delete();
+                    }else {
+                        try {
+                            deleteFiles(file.getCanonicalPath());
+                        } catch (IOException e) {
+                            logger.error(e.getmessage());
+                        }
+                    }
+                }
+            }
+        }else {
+            logger.error("the delete file does not exist");
+        }
+    }
 }
